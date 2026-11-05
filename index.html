@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All In One AI Studio</title>
+<style>
+body{background:#0f0f1a;color:white;font-family:Arial;text-align:center;padding:20px}
+h1{color:#a78bfa}
+.card{background:#1e1e35;padding:20px;margin:15px;border-radius:15px}
+button{background:#7c3aed;color:white;border:0;padding:12px 20px;border-radius:10px;font-size:16px;margin:5px}
+input,textarea,select{width:90%;padding:12px;margin:8px;border-radius:10px;border:0}
+img,video{max-width:100%;border-radius:10px;margin-top:10px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<h1>✨ All In One AI Studio</h1>
+<p>Free - App Builder | Video Editor | Photo Editor | Portfolio</p>
+
+<div class="card">
+<button onclick="show('app')">📱 App Builder</button>
+<button onclick="show('video')">🎬 Video Editor</button>
+<button onclick="show('photo')">🖼️ Photo Editor</button>
+<button onclick="show('port')">🌐 Portfolio Builder</button>
+</div>
+
+<div id="app" class="card">
+<h2>📱 App Builder</h2>
+<input id="idea" placeholder="App idea likho, jaise: Video Editing App">
+<button onclick="makeApp()">Generate App Plan</button>
+<p id="appOut"></p>
+</div>
+
+<div id="video" class="card hidden">
+<h2>🎬 Video Editor</h2>
+<input type="file" accept="video/*" onchange="loadVideo(event)">
+<video id="v" controls></video><br>
+<button onclick="filterVideo('grayscale(1)')">Black & White</button>
+<button onclick="filterVideo('sepia(1)')">Sepia</button>
+<button onclick="filterVideo('none')">Normal</button>
+<button onclick="document.getElementById('v').playbackRate=2">2x Speed</button>
+<button onclick="document.getElementById('v').playbackRate=0.5">Slow</button>
+</div>
+
+<div id="photo" class="card hidden">
+<h2>🖼️ Photo Editor</h2>
+<input type="file" accept="image/*" onchange="loadPhoto(event)">
+<img id="p"><br>
+<button onclick="filterPhoto('grayscale(1)')">Black & White</button>
+<button onclick="filterPhoto('sepia(1)')">Sepia</button>
+<button onclick="filterPhoto('contrast(1.5)')">Bright</button>
+<button onclick="filterPhoto('none')">Normal</button>
+</div>
+
+<div id="port" class="card hidden">
+<h2>🌐 Portfolio Builder</h2>
+<input id="name" placeholder="Apna Naam">
+<input id="skill" placeholder="Apki Skills - jaise Video Editor">
+<textarea id="about" placeholder="Apne bare me likho"></textarea>
+<button onclick="makePort()">Make My Portfolio</button>
+<div id="portOut"></div>
+</div>
+
+<script>
+function show(id){
+['app','video','photo','port'].forEach(x=>document.getElementById(x).classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+}
+function makeApp(){
+let i=document.getElementById('idea').value;
+document.getElementById('appOut').innerHTML="<b>App Name:</b> "+i+" Pro<br><b>Features:</b> Login, Home, Edit, Share, Profile<br><b>Tech:</b> Flutter + Firebase Free<br><b>Hosting:</b> Firebase Free<br><b>Rank Plan:</b> Acha Title + Keywords + Daily Posts";
+}
+function loadVideo(e){document.getElementById('v').src=URL.createObjectURL(e.target.files[0]);}
+function filterVideo(f){document.getElementById('v').style.filter=f;}
+function loadPhoto(e){document.getElementById('p').src=URL.createObjectURL(e.target.files[0]);}
+function filterPhoto(f){document.getElementById('p').style.filter=f;}
+function makePort(){
+let n=document.getElementById('name').value;
+let s=document.getElementById('skill').value;
+let a=document.getElementById('about').value;
+document.getElementById('portOut').innerHTML="<hr><h2>Hi, I am "+n+"</h2><h3>"+s+"</h3><p>"+a+"</p><button>Contact Me</button>";
+}
+</script>
+</body>
+  </html>
