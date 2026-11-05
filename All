@@ -1,0 +1,25 @@
+Act as a Senior Full Stack Developer.
+
+Build me ONE complete FREE web app called "All In One AI Studio" using HTML, CSS, JavaScript only. No paid API, no backend needed. Everything should work free in browser.
+
+Create 4 tools in ONE app:
+
+1. APP BUILDER:
+User types app idea, you generate App Name, Features, UI design, and Downloadable Code.
+
+2. VIDEO EDITOR:
+User can upload video, Trim, Add Text, Add Music, Add Filter, Change Speed, and Download.
+
+3. PHOTO EDITOR:
+User can upload photo, Crop, Filter, Background Remove Effect, Add Text, Brightness, and Download.
+
+4. PORTFOLIO WEBSITE BUILDER:
+User enters Name, Skills, Photo, Projects. You generate a beautiful Portfolio Website with Home, About, Projects, Contact pages. With Download button.
+
+Design:
+- Modern dark theme, purple + blue gradient
+- Mobile friendly, Top 2 ranking style like Play Store apps
+- One Home Page with 4 big buttons for 4 tools
+- All in ONE index.html file
+
+Give me full complete code in one file. Make it 100% working and free unlimited.
