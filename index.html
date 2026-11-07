@@ -1,125 +1,182 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>REDLINE PERFECT by Arham - All AI In One</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REDLINE - All In One AI Studio</title>
 <style>
-*{box-sizing:border-box;font-family:Arial}body{margin:0;background:#050505;color:#fff}
-header{background:#000;border-bottom:2px solid #ff0000;padding:12px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10}
-.logo{font-size:26px;font-weight:900;color:#ff0000;letter-spacing:1px}.logo span{color:#fff;font-size:11px}
-input,textarea,select{width:100%;padding:13px;border-radius:12px;border:1px solid #333;background:#111;color:#fff;margin:6px 0;font-size:15px}
-button{background:#ff0000;color:#fff;border:0;padding:13px;border-radius:12px;font-weight:800;width:100%;cursor:pointer;margin:5px 0;font-size:15px}
-button.outline{background:#111;border:1px solid #ff0000}
-button.smallbtn{width:auto;padding:8px 14px;font-size:13px;margin:3px}
-.nav{display:flex;gap:6px;overflow:auto;padding:10px;background:#0a0a0a;position:sticky;top:52px;z-index:9}
-.nav button{width:auto;white-space:nowrap;padding:10px 14px}
-.card{background:#111;border:1px solid #222;border-radius:18px;padding:16px;margin:12px}
-.chat{height:260px;overflow:auto;background:#000;padding:10px;border-radius:12px;border:1px solid #222}
-.msg{padding:10px;border-radius:12px;margin:7px 0;background:#1a1a1a;line-height:1.5}
-.msg.ai{background:#1a0000;border:1px solid #ff0000}
-.preview{background:#000;border:1px dashed #ff0000;border-radius:14px;padding:16px;min-height:120px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.small{font-size:12px;color:#aaa}.badge{background:#ff0000;padding:4px 10px;border-radius:20px;font-size:11px}
-.price{border:2px solid #ff0000;background:#1a0000}
-.pill{display:inline-block;background:#222;padding:6px 10px;border-radius:20px;font-size:12px;margin:3px;cursor:pointer}
-.pill.active{background:#ff0000}
-.toolbox{display:flex;flex-wrap:wrap;gap:6px}
-</style></head><body>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#050505;color:#fff;min-height:100vh}
+header{padding:20px;text-align:center;border-bottom:2px solid #ff0000;background:#0a0a0a;position:sticky;top:0;z-index:99}
+.logo{font-size:32px;font-weight:900;letter-spacing:3px}
+.logo span{color:#ff0000}
+.sub{color:#aaa;font-size:13px;margin-top:5px}
+.nav{display:flex;gap:8px;overflow-x:auto;padding:12px;justify-content:center;flex-wrap:wrap}
+.nav button{background:#1a1a1a;color:#fff;border:1px solid #333;padding:10px 16px;border-radius:20px;cursor:pointer;font-weight:600}
+.nav button.active{background:#ff0000;border-color:#ff0000}
+.container{max-width:900px;margin:0 auto;padding:20px}
+.card{background:#111;border:1px solid #222;border-radius:16px;padding:20px;margin-bottom:18px}
+.card h2{font-size:20px;margin-bottom:8px}
+.card p{color:#aaa;font-size:14px;line-height:1.5}
+input,textarea,select{width:100%;background:#000;border:1px solid #333;color:#fff;padding:12px;border-radius:10px;margin-top:10px;outline:none;font-size:15px}
+textarea{min-height:90px;resize:vertical}
+.btn{background:#ff0000;color:#fff;border:none;padding:13px;width:100%;border-radius:10px;font-weight:800;font-size:16px;margin-top:12px;cursor:pointer}
+.btn2{background:#222;color:#fff;border:1px solid #444;padding:10px 14px;border-radius:10px;cursor:pointer;margin-top:10px}
+.output{background:#000;border:1px dashed #ff0000;padding:15px;border-radius:10px;margin-top:15px;white-space:pre-wrap;line-height:1.6;font-size:14px;display:none}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:15px}
+.tool{background:#1a1a1a;border:1px solid #333;padding:18px;border-radius:14px;cursor:pointer;text-align:center}
+.tool:hover{border-color:#ff0000}
+.tool div{font-size:28px}
+.tool b{display:block;margin-top:8px}
+.tool span{color:#888;font-size:12px}
+.badge{background:#ff0000;color:#fff;padding:2px 8px;border-radius:20px;font-size:11px}
+footer{text-align:center;color:#666;padding:20px;font-size:12px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.logo{font-size:26px}}
+</style>
+</head>
+<body>
 
-<header><div class="logo">REDLINE <span>by Arham • PERFECT</span></div><div style="flex:1"></div><span class="badge">ALL AI IN ONE</span></header>
-<div style="padding:10px 12px;text-align:center"><b>Grok + ChatGPT + Claude + Replit + Cursor + Bolt + Bass44 - Sab Ek App Me</b><br><span class="small">Website • App • Video • Animation • Photo • SaaS</span></div>
+<header>
+<div class="logo">RED<span>LINE</span> 🔥</div>
+<div class="sub">Your AI-Powered Creative Suite • No Backend • No Paid API</div>
+</header>
 
-<div class="nav">
-<button onclick="show('chat')">💬 Chat AI</button>
-<button onclick="show('code')">💻 Code AI</button>
-<button onclick="show('builder')">🚀 App Builder</button>
-<button onclick="show('web')">🌐 Website Builder</button>
-<button onclick="show('video')">🎬 Video AI</button>
-<button onclick="show('shorts')">🔥 Shorts</button>
-<button onclick="show('image')">🖼️ Image AI</button>
-<button onclick="show('anim')">✨ Animation</button>
-<button onclick="show('agency')">💰 Agency</button>
+<div class="nav" id="nav">
+<button class="active" onclick="show('home',this)">🏠 Home</button>
+<button onclick="show('story',this)">📖 Story Weaver</button>
+<button onclick="show('image',this)">🎨 Image Studio</button>
+<button onclick="show('video',this)">🎬 Video Editor</button>
+<button onclick="show('movie',this)">🎥 Movie Studio</button>
+<button onclick="show('design',this)">✏️ Design Studio</button>
+<button onclick="show('planner',this)">🎞️ Cinematic Planner</button>
+<button onclick="show('director',this)">🎬 Director Studio</button>
 </div>
 
-<!-- CHAT - GROK + CHATGPT + CLAUDE -->
-<div id="chat" class="card"><h2>💬 Chat AI - Choose Your AI</h2>
-<div class="toolbox"><span class="pill active" onclick="setAI(this,'Grok')">⚡ Grok - Fast + Funny</span><span class="pill" onclick="setAI(this,'ChatGPT')">🤖 ChatGPT - Best Writing</span><span class="pill" onclick="setAI(this,'Claude')">🧠 Claude - Long Code</span><span class="pill" onclick="setAI(this,'Bass44')">🎵 Bass44 - Music + App</span></div>
-<div class="chat" id="chatBox"><div class="msg ai">👋 Hi! Main <b id="aiName">Grok</b> hun REDLINE me. Mujhse kuch bhi poocho - App, Website, Video, Animation, Business Plan.</div></div>
-<input id="chatIn" placeholder="Likho... Example: Mujhe TikTok jaisa app banao">
-<button onclick="askAI()">Send to REDLINE AI</button>
-<div class="grid"><button class="outline" onclick="quickAsk('Mujhe business idea do')">💡 Business Idea</button><button class="outline" onclick="quickAsk('Mujhe viral video script do')">🎬 Video Script</button></div></div>
+<div class="container">
 
-<!-- CODE - REPLIT + CURSOR + CLAUDE CODE -->
-<div id="code" class="card" style="display:none"><h2>💻 Code AI - Replit + Cursor + Claude Code</h2>
-<div class="toolbox"><span class="pill active">Replit Mode</span><span class="pill">Cursor Mode</span><span class="pill">Claude Code Mode</span></div>
-<input id="codeIn" placeholder="Kya banana hai? Example: Instagram Clone, Food Delivery App, Chat App">
-<button onclick="buildApp()">⚡ BUILD + RUN APP</button>
-<div class="preview" id="codeOut">App ka Live Preview yahan aayega...</div>
-<textarea id="codeView" rows="6" placeholder="Code yahan aayega... Copy karke kahin bhi chalao"></textarea>
-<button class="outline" onclick="copyCode()">📂 Copy Code</button></div>
+<!-- HOME -->
+<div id="home">
+<div class="card">
+<h2>Welcome to REDLINE PERFECT 🚀</h2>
+<p>Select any tool below to begin your next project. Single HTML file • Works Offline • Free Forever</p>
+<div class="grid">
+<div class="tool" onclick="show('story',null)"><div>📖</div><b>Story Weaver</b><span>Story + Comic + Script</span></div>
+<div class="tool" onclick="show('image',null)"><div>🎨</div><b>Image Studio</b><span>Prompt Generator</span></div>
+<div class="tool" onclick="show('video',null)"><div>🎬</div><b>Video Editor</b><span>Reels / Shorts Script</span></div>
+<div class="tool" onclick="show('design',null)"><div>✏️</div><b>Design Studio</b><span>Poster / Thumbnail</span></div>
+<div class="tool" onclick="show('movie',null)"><div>🎥</div><b>Movie Studio</b><span>Full Movie Plan</span></div>
+<div class="tool" onclick="show('planner',null)"><div>🎞️</div><b>Cinematic Planner</b><span>Shot List</span></div>
+<div class="tool" onclick="show('director',null)"><div>🎬</div><b>Director Studio</b><span>AI Director</span></div>
+<div class="tool" onclick="show('discovery',null)"><div>🔍</div><b>Discovery</b><span>Explore Ideas</span></div>
+</div>
+</div>
+<div class="card"><h2>🔥 Trending Ideas <span class="badge">NEW</span></h2><p id="trend">Click Generate to get viral idea</p><button class="btn" onclick="trend()">Generate Viral Idea</button></div>
+</div>
 
-<!-- APP BUILDER - BOLT + BASS44 + LOVABLE -->
-<div id="builder" class="card" style="display:none"><h2>🚀 App Builder - Bolt + Bass44 + Lovable Style</h2>
-<p class="small">Sirf naam likho, REDLINE poora app bana dega - jaise Bolt.new / Bass44</p>
-<input id="bName" placeholder="App Name - Example: Bass44 Pro, My Shop App">
-<input id="bType" placeholder="Type - Music App / Shop App / Gym App / Restaurant App">
-<button onclick="buildApp2()">🚀 CREATE MY APP IN 10 SEC</button>
-<div id="bOut" class="preview"></div></div>
-
-<!-- WEBSITE BUILDER -->
-<div id="web" class="card" style="display:none"><h2>🌐 Website Builder - Portfolio + Business Website</h2>
-<input id="wName" placeholder="Business Name - Example: Karachi Burger">
-<input id="wType" placeholder="Business Type - Restaurant / Gym / Shop / School">
-<button onclick="buildWeb()">🌐 BUILD WEBSITE</button>
-<div id="wOut" class="preview">Website preview yahan...</div></div>
-
-<!-- VIDEO -->
-<div id="video" class="card" style="display:none"><h2>🎬 Video AI - Sora + Text to Video + Image to Video</h2>
-<select id="vType"><option>Text to Video - Sora Style</option><option>Image to Video</option><option>Video to Video - Style Change</option></select>
-<textarea id="vPrompt" placeholder="Video kaisa ho? Example: Karachi me ek ladka bike chala raha hai, cinematic, 4K"></textarea>
-<button onclick="genVideo()">🎥 GENERATE VIDEO</button>
-<div id="vOut" class="preview">Video yahan banegi...</div></div>
-
-<!-- SHORTS -->
-<div id="shorts" class="card" style="display:none"><h2>🔥 Shorts Maker - Long Video to 10 Shorts</h2>
-<input id="ytLink" placeholder="Paste YouTube Long Video Link">
-<select><option>Viral Hook + Captions</option><option>Funny Moments</option><option>Podcast Highlights</option></select>
-<button onclick="makeShorts()">✂️ MAKE 10 VIRAL SHORTS</button>
-<div id="shortsOut" class="preview">Shorts yahan...</div></div>
+<!-- STORY -->
+<div id="story" style="display:none">
+<div class="card"><h2>📖 Story Weaver</h2><p>Apni story ka idea likho, REDLINE poori story bana dega.</p>
+<input id="storyIn" placeholder="e.g. Ek larka jo time travel karta hai...">
+<select id="storyType"><option>Comic Book Story</option><option>Horror Story</option><option>Love Story</option><option>Action Movie Script</option><option>Urdu Kahani</option></select>
+<button class="btn" onclick="genStory()">Generate Story</button>
+<button class="btn2" onclick="copy('storyOut')">📋 Copy</button>
+<div class="output" id="storyOut"></div></div>
+</div>
 
 <!-- IMAGE -->
-<div id="image" class="card" style="display:none"><h2>🖼️ Image AI - Text to Image + Photo Editor</h2>
-<select><option>Text to Image</option><option>Image to Image</option><option>Photo Editor - Soft Face / Background Remove</option></select>
-<input id="iPrompt" placeholder="Photo kaisi ho? Example: Soft face, light curly hair, studio light">
-<button onclick="genImage()">✨ GENERATE IMAGE</button>
-<div id="iOut" class="preview">Image yahan...</div></div>
+<div id="image" style="display:none">
+<div class="card"><h2>🎨 Image Studio</h2><p>Image ka idea likho, REDLINE best AI prompt bana dega.</p>
+<input id="imgIn" placeholder="e.g. Karachi ka larka, red jacket, cinematic...">
+<select id="imgStyle"><option>Cinematic / Realistic</option><option>Anime</option><option>3D Pixar</option><option>Comic Book</option><option>Ultra HD Poster</option></select>
+<button class="btn" onclick="genImg()">Generate Image Prompt</button>
+<button class="btn2" onclick="copy('imgOut')">📋 Copy Prompt</button>
+<div class="output" id="imgOut"></div>
+<p style="margin-top:10px;color:#888;font-size:12px">Tip: Is prompt ko Bing / Leonardo / Midjourney me paste karo.</p></div>
+</div>
 
-<!-- ANIMATION -->
-<div id="anim" class="card" style="display:none"><h2>✨ Animation Studio - Logo + Text + Cartoon</h2>
-<input id="animText" placeholder="Kya likhna hai? Example: SALE 50% OFF, REDLINE">
-<select id="animType"><option>Bounce Animation</option><option>Logo Spin</option><option>Cartoon Style</option><option>Intro Animation</option></select>
-<button onclick="makeAnim()">✨ MAKE ANIMATION</button>
-<div id="animOut" class="preview" style="text-align:center;font-size:30px;font-weight:900">Preview Yahan</div></div>
+<!-- VIDEO -->
+<div id="video" style="display:none">
+<div class="card"><h2>🎬 Video Editor - Reels Script</h2>
+<input id="vidIn" placeholder="e.g. Chai wala billionaire ban gaya...">
+<button class="btn" onclick="genVideo()">Generate Reels Script</button>
+<button class="btn2" onclick="copy('vidOut')">📋 Copy</button>
+<div class="output" id="vidOut"></div></div>
+</div>
 
-<!-- AGENCY -->
-<div id="agency" class="card price" style="display:none"><h2>💰 REDLINE AGENCY - $1000 FULL PACKAGE</h2>
-<h1 style="color:#ff0000;margin:0">$1000 Only</h1><p class="small">Other Agency $5000 - REDLINE $1000</p>
-<p>✅ Animation - Logo, Intro, Cartoon<br>✅ SaaS App + Website<br>✅ Video Editing + 10 Shorts<br>✅ Photo Editing + 20 Posters<br>✅ Delivery in 3 Days</p>
-<input placeholder="Your Name"><input placeholder="Business - Restaurant / Gym / Shop?"><input placeholder="WhatsApp Number">
-<button onclick="alert('Booked! REDLINE Team aap se rabta karega.')">🚀 BOOK $1000 PACKAGE</button></div>
+<!-- MOVIE -->
+<div id="movie" style="display:none">
+<div class="card"><h2>🎥 Movie Studio</h2>
+<input id="movieIn" placeholder="e.g. Karachi me ek superhero...">
+<button class="btn" onclick="genMovie()">Generate Full Movie Plan</button>
+<button class="btn2" onclick="copy('movieOut')">📋 Copy</button>
+<div class="output" id="movieOut"></div></div>
+</div>
 
-<div class="card" style="text-align:center"><b>REDLINE PERFECT by Arham</b><br><span class="small">Grok • ChatGPT • Claude • Replit • Cursor • Bolt • Bass44 • Sora • All In One</span></div>
+<!-- DESIGN -->
+<div id="design" style="display:none">
+<div class="card"><h2>✏️ Design Studio</h2>
+<input id="desIn" placeholder="e.g. YouTube Thumbnail - Horror Story">
+<button class="btn" onclick="genDesign()">Generate Design Idea</button>
+<button class="btn2" onclick="copy('desOut')">📋 Copy</button>
+<div class="output" id="desOut"></div></div>
+</div>
+
+<!-- PLANNER -->
+<div id="planner" style="display:none">
+<div class="card"><h2>🎞️ Cinematic Planner</h2>
+<input id="planIn" placeholder="e.g. Bike chase scene">
+<button class="btn" onclick="genPlan()">Generate Shot List</button>
+<button class="btn2" onclick="copy('planOut')">📋 Copy</button>
+<div class="output" id="planOut"></div></div>
+</div>
+
+<!-- DIRECTOR -->
+<div id="director" style="display:none">
+<div class="card"><h2>🎬 Director Studio - AI Director</h2>
+<input id="dirIn" placeholder="e.g. Emotional scene - bhai pardes ja raha hai">
+<button class="btn" onclick="genDir()">Direct My Scene</button>
+<button class="btn2" onclick="copy('dirOut')">📋 Copy</button>
+<div class="output" id="dirOut"></div></div>
+</div>
+
+<!-- DISCOVERY -->
+<div id="discovery" style="display:none">
+<div class="card"><h2>🔍 Discovery</h2><p>Explore community creations & ideas</p>
+<button class="btn" onclick="trend()">Discover New Idea</button>
+<div class="output" id="discOut" style="display:block">👉 Click Discover to get idea...</div></div>
+</div>
+
+</div>
+<footer>© 2026 REDLINE Studio • Made by Arham • All Rights Reserved</footer>
 
 <script>
-let curAI='Grok';
-function show(id){['chat','code','builder','web','video','shorts','image','anim','agency'].forEach(x=>document.getElementById(x).style.display=x===id?'block':'none')}
-function setAI(el,name){curAI=name;document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));el.classList.add('active');document.getElementById('aiName').innerText=name}
-function quickAsk(t){document.getElementById('chatIn').value=t;askAI()}
-function askAI(){let q=document.getElementById('chatIn').value;if(!q)return;let b=document.getElementById('chatBox');b.innerHTML+=`<div class="msg">🧑 ${q}</div><div class="msg ai">🤖 <b>${curAI} in REDLINE:</b> Samajh gaya! "${q}"<br><br>✅ Plan ready hai<br>✅ Code / App / Video ka structure bana diya<br>✅ Ab <b>App Builder</b> ya <b>Code AI</b> me jao, wahan full app ban jayega.<br><br>Tip: Yehi kaam Grok, ChatGPT, Claude sab karte hain - REDLINE me sab ek jagah hai.</div>`;b.scrollTop=b.scrollHeight;document.getElementById('chatIn').value=''}
-function buildApp(){let n=document.getElementById('codeIn').value||'My Super App';document.getElementById('codeOut').innerHTML=`<h2>🔥 ${n} Ready! - Replit + Cursor Style</h2><p>✅ Home ✅ Login ✅ Feed ✅ Profile</p><button onclick="alert('${n} Live Ho Gaya!')">▶️ RUN ${n}</button>`;document.getElementById('codeView').value=`<!DOCTYPE html><html><body style="background:black;color:white;text-align:center"><h1>${n}</h1><p>Made by REDLINE - Replit + Cursor + Claude Code</p></body></html>`;alert(n+' Ban Gaya!')}
-function buildApp2(){let n=document.getElementById('bName').value||'Bass44 Pro';let t=document.getElementById('bType').value||'Super App';document.getElementById('bOut').innerHTML=`<h2>🚀 ${n} Created! - Bolt + Bass44 Style</h2><p>Type: ${t}</p><p>✅ Home ✅ Editor ✅ Music ✅ Export</p><button onclick="alert('${n} Live!')">Launch ${n}</button>`}
-function buildWeb(){let n=document.getElementById('wName').value||'My Business';let t=document.getElementById('wType').value||'Shop';document.getElementById('wOut').innerHTML=`<h2>🌐 ${n} Website Ready!</h2><p>${t} - Home + Menu + Contact + Booking</p><button onclick="alert('Website Live!')">Open Website</button>`}
-function copyCode(){let c=document.getElementById('codeView');c.select();document.execCommand('copy');alert('Code Copy Ho Gaya!')}
-function genVideo(){let p=document.getElementById('vPrompt').value||'Cool cinematic video';document.getElementById('vOut').innerHTML=`⏳ Generating Sora Style Video... ${p}<br><br><div style="background:#222;padding:20px;border-radius:10px">▶️ VIDEO READY 100%<br><button onclick="alert('Video Download Ho Rahi Hai...')">⬇️ Download Video</button></div>`}
-function makeShorts(){let link=document.getElementById('ytLink').value||'YouTube Link';let h=`<b>Link:</b> ${link}<br><br>`;for(let i=1;i<=5;i++){h+=`<div style="background:#000;border:1px solid red;padding:10px;border-radius:10px;margin:6px 0">🎬 SHORT ${i} - Viral Clip<br>Hook: "Ye sun ke hairan ho jaoge..."<br><button onclick="alert('Short ${i} Download')">⬇️ Download Short ${i}</button></div>`}document.getElementById('shortsOut').innerHTML=h}
-function genImage(){let p=document.getElementById('iPrompt').value||'Soft face, studio light';document.getElementById('iOut').innerHTML=`<div style="background:linear-gradient(135deg,#ff0000,#ff6600);padding:30px;border-radius:12px;text-align:center">🖼️ IMAGE READY<br>${p}<br><br><button onclick="alert('Image Download!')">⬇️ Download</button></div>`}
-function makeAnim(){let t=document.getElementById('animText').value||'REDLINE';document.getElementById('animOut').innerHTML=`<div style="animation:bounce 1s infinite;color:#ff0000">${t}</div><p style="font-size:12px">Animation Ready - Client ko bhejo</p><style>@keyframes bounce{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}</style>`}
-</script></body></html>
+function show(id,btn){
+document.querySelectorAll('.container > div').forEach(d=>d.style.display='none');
+document.getElementById(id).style.display='block';
+if(btn){document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+window.scrollTo(0,0);
+}
+function out(id,text){let e=document.getElementById(id);e.style.display='block';e.innerText=text}
+function copy(id){let t=document.getElementById(id).innerText;navigator.clipboard.writeText(t);alert('Copied! ✅')}
+function trend(){
+let ideas=["1. Chai Wala Billionaire - 30 sec Reels\n2. Karachi Ka Batman\n3. School Ka Last Day - Emotional\n4. AI Robot vs Insaan\n5. Bhai Pardes Chala Gaya - Emotional Story\n6. Time Travel In Lyari\n7. Ghost In School"];
+out('discOut',ideas[Math.floor(Math.random()*ideas.length)]);
+let tr=document.getElementById('trend'); if(tr) tr.innerText=ideas[Math.floor(Math.random()*ideas.length)];
+}
+function genStory(){let v=document.getElementById('storyIn').value||'Ek hero ki kahani';let t=document.getElementById('storyType').value;
+out('storyOut',`🎬 ${t}\n\nTITLE: ${v}\n\nSCENE 1 - START:\n${v} ... Subah ka waqt tha. Sab kuch normal lag raha tha, lekin aaj kuch bara hone wala tha.\n\nSCENE 2 - PROBLEM:\nAchanak ek problem aa gayi. Hero ko samajh nahi aa raha tha kya kare.\n\nSCENE 3 - TWIST:\nPhir ek aisa twist aaya jis ne sab badal diya!\n\nSCENE 4 - CLIMAX:\nHero ne himmat dikhai aur sab ko bacha liya.\n\nSCENE 5 - ENDING:\nAkhir me sab khush the. Lesson: Himmat kabhi mat haro.\n\n---\nDIALOGUE IDEA:\nHero: "Main haar nahi manunga!"\n\nHashtag: #REDLINE #Story`)}
+function genImg(){let v=document.getElementById('imgIn').value||'Karachi boy cinematic';let s=document.getElementById('imgStyle').value;
+out('imgOut',`🎨 IMAGE PROMPT (${s}):\n\n"${v}, ${s} style, ultra detailed, 8k, cinematic lighting, dramatic shadows, high quality, professional photography, vibrant colors, sharp focus"\n\nNEGATIVE: blurry, low quality, distorted face\n\nCopy karke Bing Image Creator me paste karo.`)}
+function genVideo(){let v=document.getElementById('vidIn').value||'Viral Story';
+out('vidOut',`🎬 REELS SCRIPT: ${v}\n\n[0-3 sec HOOK]: "Ye larka 1 din me crorepati kaise bana? End tak dekho!"\n[3-10 sec]: ${v} ki shuruaat...\n[10-25 sec]: Problem + Twist\n[25-30 sec]: "Part 2 ke liye FOLLOW karo!"\n\nCAPTION: ${v} 😱🔥 #viral #redline\nMUSIC: Trending - Emotional / Beat`)}
+function genMovie(){let v=document.getElementById('movieIn').value||'Karachi Superhero';
+out('movieOut',`🎥 MOVIE: ${v}\n\nGENRE: Action + Emotion\nDURATION: 90 Mins\n\nACT 1: Hero ki normal life - ${v}\nACT 2: Villain entry + bara masla\nACT 3: Final Fight + Emotional Ending\n\nCHARACTERS:\n1. Hero - Arham\n2. Best Friend\n3. Villain - Don\n4. Heroine\n\nBUDGET IDEA: Low budget, mobile shooting, cinematic color grading.\n\nPOSTER TAGLINE: "Ab waqt aa gaya hai!"`)}
+function genDesign(){let v=document.getElementById('desIn').value||'YouTube Thumbnail';
+out('desOut',`✏️ DESIGN: ${v}\n\nCOLOR: Black + Red (REDLINE Theme)\nFONT: Bold, Big - 80px\nTEXT: "${v}" - Sirf 3 lafz, bara likho\nIMAGE: Face - Shocked Expression, Red Background\nCTA: Yellow Arrow + Circle\n\nCanva me banao: 1280x720 size`)}
+function genPlan(){let v=document.getElementById('planIn').value||'Chase Scene';
+out('planOut',`🎞️ SHOT LIST: ${v}\n\nSHOT 1: Wide Shot - Location dikhao (5 sec)\nSHOT 2: Close Up - Hero ka face (3 sec)\nSHOT 3: Tracking Shot - Peeche se follow (7 sec)\nSHOT 4: Drone Shot - Upar se (5 sec)\nSHOT 5: Slow Motion - Action moment (4 sec)\nSHOT 6: Final Close Up - Emotional (3 sec)\n\nCAMERA: Mobile + Gimbal\nLIGHT: Natural + Red Light`)}
+function genDir(){let v=document.getElementById('dirIn').value||'Emotional Scene';
+out('dirOut',`🎬 DIRECTOR NOTES: ${v}\n\nMOOD: Emotional + Cinematic\nACTOR DIRECTION: "Aankhon me aansu, awaz halki rakho"\nCAMERA: Slow Zoom In, 50mm Lens\nLIGHT: Low Light, Window Light\nMUSIC: Sad Piano\nDIALOGUE: "Bhai, apna khayal rakhna..."\n\nDIRECTOR TIP: Scene ko 2 baar shoot karo - ek wide, ek close.`)}
+</script>
+</body>
+  </html>
